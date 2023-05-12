@@ -90,10 +90,10 @@ class MyClient(Bot):
             LOGGER.log(logging.WARN, "The bot is in testing mode.")
             print(f"{Fore.BLACK}{Back.RED}The bot is in testing mode.{Style.RESET_ALL}")
 
-        elif self.is_testing and self.TEST_GUILD is None:
+        elif self.is_testing:
             raise IncompleteTestingError(1)
 
-        elif not self.is_testing and self.TEST_GUILD is not None:
+        elif self.TEST_GUILD is not None:
             raise IncompleteTestingError(2)
 
     async def close(self) -> None:

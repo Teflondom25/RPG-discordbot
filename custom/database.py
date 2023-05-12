@@ -283,9 +283,6 @@ class DatabaseManager:
             )
             await self.backup()
 
-        elif database_exists:
-            self.log("Loading database schema for the first time.", level=logging.INFO)
-
         with open(self.database_schema_path) as s:
             schema = s.read()
 
